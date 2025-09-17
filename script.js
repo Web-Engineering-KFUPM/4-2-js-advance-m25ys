@@ -21,7 +21,30 @@ Task:
 3) Add a setter updateGpa(newGpa) or use a set accessor for gpa that validates 0.0–4.0.
 4) Create an instance/object and output its attributes using the getter(s).
 */
+const student = {
+  firstName: "Mohammed",
+  lastName: "Ahamed",
+  _gpa: 3.5,
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
 
+  get gpa() {
+    return this._gpa;
+  },
+  set gpa(newGpa) {
+    if (newGpa >= 0.0 && newGpa <= 4.0) {
+      this._gpa = newGpa;
+    } else {
+      console.log("Invalid GPA");
+    }
+  }
+};
+console.log("Full Name:", student.fullName);
+console.log("Current GPA:", student.gpa);
+student.gpa = 3.9;
+console.log("Updated GPA:", student.gpa);
+student.gpa = 5.0; // will result in invalid GPA
 // ====================================
 // TODO-2: OBJECT AS MAP + for...in LOOP
 // ====================================
@@ -30,7 +53,15 @@ Task:
 1) Make an object used as a "map" (key → value), e.g., course codes → titles.
 2) Iterate over it with for...in and display each key and value.
 */
-
+const courses = {
+  ICS101: "Introdation to Computer Science",
+  MATH101: "Linear Algebra",
+  ENG101: "English I ",
+  PHY101: "Physics I"
+};
+for (let course in courses) {
+  console.log(`${course}: ${courses[course]}`);
+}
 // =========================================
 // TODO-3: STRING OBJECT — charAt() & length
 // =========================================
@@ -39,7 +70,9 @@ Task:
 1) Create a String object or plain string.
 2) Use .charAt(index) and .length to output characters and size.
 */
-
+const str = "JavaS";
+console.log("Length:", str.length);
+console.log("Character at index 4:", str.charAt(4));
 // ===================================
 // TODO-4: DATE — day, month, and year
 // ===================================
