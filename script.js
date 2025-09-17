@@ -82,7 +82,10 @@ Task:
 2) Find and display the current day of month, month (0–11), and year.
 //    (Hint: getDate(), getMonth(), getFullYear() )
 */
-
+const today = new Date();
+console.log("Day:", today.getDate());
+console.log("Month:", today.getMonth());
+console.log("Year:", today.getFullYear());
 // ============================================================
 // TODO-5: ARRAY + SPREAD — find MIN and MAX from 10 numbers
 // ============================================================
@@ -92,7 +95,10 @@ Task:
 2) Use spread syntax with Math.min(...) and Math.max(...) to find extremes.
 3) Display both values.
 */
-
+const numbers = [23, 5, 33, 14, 72, 22, 45, 69, 30, 12];
+console.log("Numbers:", numbers);
+console.log("Min:", Math.min(...numbers));
+console.log("Max:", Math.max(...numbers));
 // ===================================================================
 // TODO-6: EXCEPTIONS — try/catch/finally with EMPTY ARRAY edge case
 // ===================================================================
@@ -103,7 +109,20 @@ Task:
 3) Handle the error using try { ... } catch (e) { ... } finally { ... } and log messages
    in each block so you can see the flow of control.
 */
-
+function findMax(arr) {
+  if (arr.length === 0) {
+    throw new Error("Array is empty!");
+  }
+  return Math.max(...arr);
+}
+try {
+  const emptyArr = [];
+  console.log("Max:", findMax(emptyArr));
+} catch (e) {
+  console.log("Error:", e.message);
+} finally {
+  console.log("finally mesaage");
+}
 // ===================================================================================
 // TODO-7: REGEX + forEach — find words containing 'ab' and log matches from the list
 // ===================================================================================
@@ -115,5 +134,11 @@ Given: const words = ["ban", "babble", "make", "flab"];
 3) For matches, log "<word> matches!".
 4) Display the words that matches the pattern.
 */
-
+const words = ["ban", "babble", "make", "flab"];
+const pattern = /ab/;
+words.forEach(word => {
+  if (pattern.test(word)) {
+    console.log(`${word} matches!`);
+  }
+});
 // End of Advance JavaScript Lab — good luck!
